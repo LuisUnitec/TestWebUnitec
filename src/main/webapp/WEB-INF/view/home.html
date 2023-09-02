@@ -6,11 +6,14 @@
 </head>
 
 <body>
-Usuario registrado: {{ usuario.nombre }}
-Peso: {{ usuario.peso }}
-Altura: {{ usuario.altura }}
+{{#each listaUsuarios}}
+    <span> Usuario: <a href="/posts/{{this.nombre}}"> {{this.nombre}} </a> </span>
+    <span> Peso: {{this.peso}} </span>
+    <span> Altura: {{this.altura}} </span>
+{{/each}}
 
-<form name="datosUsuario" action="registrarUsuario" method="post">
+
+<form name="datosUsuario" action="registrarUsuario" method="POST">
     <label for="nombre">Nombre del usuario:</label>
     <input id="nombre" name="nombre" type="text"/>
     <br/>

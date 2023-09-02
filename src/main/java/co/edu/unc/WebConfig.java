@@ -1,5 +1,6 @@
 package co.edu.unc;
 
+import co.edu.unc.Viewresolvers.JakartaViewResolver;
 import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,7 @@ public class WebConfig {
 
     @Bean
     public ViewResolver viewResolver() {
-        HandlebarsViewResolver viewResolver = new HandlebarsViewResolver();
+        JakartaViewResolver viewResolver = new JakartaViewResolver();
         viewResolver.setSuffix(".html");
         viewResolver.setPrefix("/WEB-INF/view/");
         return viewResolver;

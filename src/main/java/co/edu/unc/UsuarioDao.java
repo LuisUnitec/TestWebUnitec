@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface UsuarioDao extends CrudRepository<Usuario, Integer> {
 
+    @Override
+    List<Usuario> findAll();
+
     @Query("SELECT U FROM Usuario U WHERE U.peso < 80")
     public List<Usuario> buscarUsuarios();
 

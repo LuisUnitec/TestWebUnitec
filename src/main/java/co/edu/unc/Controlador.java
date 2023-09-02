@@ -1,7 +1,10 @@
 package co.edu.unc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,15 +18,15 @@ public class Controlador {
 
     @RequestMapping("/home")
     public ModelAndView home() {
-        Usuario u = usuarioDao.visualizaUsuario();
+        List<Usuario> listaUsuarios = usuarioDao.findAll();
 
         ModelAndView model = new ModelAndView("home");
-        model.addObject("usuario", u);
+        model.addObject("listaUsuarios", listaUsuarios);
         return model;
     }
 
     @RequestMapping(value = "/registrarUsuario", method = RequestMethod.POST)
-    public ModelAndView registrar(@RequestAttribute("usuario") Usuario usuario) {
+    public ModelAndView registrar(@ModelAttribute("datosUsuario") Usuario usuario) {
         usuarioDao.save(usuario);
         return new ModelAndView("home");
     }
