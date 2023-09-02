@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo Web Mysql</title>
+</head>
+
+<body>
+Usuario registrado: {{ usuario.nombre }}
+Peso: {{ usuario.peso }}
+Altura: {{ usuario.altura }}
+
+<form name="datosUsuario" action="registrarUsuario" method="post">
+    <label for="nombre">Nombre del usuario:</label>
+    <input id="nombre" name="nombre" type="text"/>
+    <br/>
+
+    <label for="peso">Peso en kg:</label>
+    <input id="peso" name="peso" type="text"/>
+    <br/>
+
+    <label for="altura">Altura en mts:</label>
+    <input id="altura" name="altura" type="text"/>
+    <br/>
+
+    <input type="submit" value="Guardar">
+</form>
+
+</body>
+</html>
